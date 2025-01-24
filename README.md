@@ -14,7 +14,7 @@ Tested with:
 ### Setup:
 Allow your cordova project to interact with USB interfaces by adding:
 
-xml```
+```xml
 <widget id="your-project-id" .... >
   ...
   <platform name="android">
@@ -27,10 +27,22 @@ xml```
 ### Actions:
 
 - initializeDevice:
-  js```cordova.plugins.WristCoin.initializeDevice(deviceInfo => console.log("Success!"), errorMessage => console.error("Error: " + errorMessage )```
-Search for Tappy compatible devices, and request permission for the first match. Once the permission is granted, start `connect` process and await for the connection status READY.
+    ```js
+    cordova.plugins.WristCoin.initializeDevice(function(deviceInfo) {
+      console.log('ready to receive commands!')
+    }, function(errorMessage) {
+      console.error('Error: ' + errorMessage)
+    })
+    ```
+  Search for Tappy compatible devices, and request permission for the first match. Once the permission is granted, starts the connection process with the device. After the connection is sucessfull, the success callback will be fired. Otherwise error cablack will be fired.
 
 -  readWristBand:
-js```cordova.plugins.WristCoin.initializeDevice(wristBandData => console.log("Success!"), errorMessage => console.error("Error: " + errorMessage )```
-Call if after `initializeDevice`. Sends a command to the Device requesting read. Then you should tap your wristband to be read. If the reading was successfull, `wristBandData` will have the info. Otherwise, en error callback will be fired.
+    ```js
+    cordova.plugins.WristCoin.initializeDevice(function(wristBandData){
+      console.log("Success!")
+    }, function(errorMessage){
+      console.error("Error: " + errorMessage )
+    })
+    ```
+    Call if after `initializeDevice`. Sends a command to the Device requesting read. Then you should tap your wristband to be read. If the reading was successfull, `wristBandData` will have the info. Otherwise, en error callback will be fired.
 
