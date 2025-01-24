@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-wristcoin"
+        version="1.0.0">
+    <name>cordova-plugin-wristcoin</name>
+    <description>Integración con Wrist Coin para cordova</description>
+    <license>MIT</license>
+    <keywords>cordova, plugin</keywords>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="WristCoin">
+                <param name="android-package" value="com.runfoodapp.CordovaPluginWristCoin.WristCoin" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/WristCoin.java" target-dir="src/com/runfoodapp/cordova-plugin-wristcoin"/>
+        <source-file src="src/android/Manager.java" target-dir="src/com/runfoodapp/cordova-plugin-wristcoin"/>
+        <source-file src="src/android/Device.java" target-dir="src/com/runfoodapp/cordova-plugin-wristcoin"/>
+        <source-file src="src/android/UsbDelegate.java" target-dir="src/com/runfoodapp/cordova-plugin-wristcoin"/>
+
+        <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+    </platform>
+    <js-module src="www/index.js" name="WristCoin">
+        <clobbers target="cordova.plugins.WristCoin"/>
+    </js-module>
+</plugin>

@@ -1,0 +1,19 @@
+{
+    "name": "cordova-plugin-wristcoin",
+    "version": "1.0.0",
+    "description": "Integración con Wrist Coin para cordova",
+    "cordova": {
+      "id": "cordova-plugin-wristcoin",
+      "platforms": ["android"]
+    },
+    "keywords": ["cordova", "plugin", "android", "wristcoin"],
+    "license": "MIT",
+    "dependencies": {
+      "cordova-android": "9.1.0"
+    },
+    "devDependencies": {},
+    "engines": {
+      "cordova": ">=10.0.0"
+    }
+  }
+  
