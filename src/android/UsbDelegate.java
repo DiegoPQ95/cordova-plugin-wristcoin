@@ -1,6 +1,7 @@
 package com.runfoodapp.CordovaPluginWristCoin;
 
-import static android.content.Context.RECEIVER_EXPORTED;
+// Agrega esta etiqueta para compatibilidad con Android >= 30
+// import static android.content.Context.RECEIVER_EXPORTED;
 
 import android.annotation.SuppressLint;
 import android.app.PendingIntent;
@@ -69,12 +70,15 @@ public class UsbDelegate {
 
     @SuppressLint("UnspecifiedRegisterReceiverFlag")
     public void register() {
+        /**
+        // Quita los comentarios en versiones posteriores a Android 30
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 context.registerReceiver(receiver, permissionFilter, RECEIVER_EXPORTED);
         } else {
-            // Para versiones anteriores a 8.0, simplemente registra el receptor sin exportarlo
+        */
+            // Para versiones anteriores Android 30, simplemente registra el receptor sin exportarlo
             context.registerReceiver(receiver, permissionFilter);
-        }
+        // }
     }
 
     public boolean hasPermission(UsbDevice device){
