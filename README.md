@@ -38,7 +38,7 @@ Allow your cordova project to interact with USB interfaces by adding:
 
 -  readWristBand:
     ```js
-    cordova.plugins.WristCoin.initializeDevice(function(wristBandData){
+    cordova.plugins.WristCoin.readWristBand(function(wristBandData){
       console.log("Success!")
     }, function(errorMessage){
       console.error("Error: " + errorMessage )
